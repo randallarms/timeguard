@@ -1,0 +1,13 @@
+name: TimeGuard
+main: com.kraken.timeguard.TimeGuard
+version: 1.0
+commands: 
+     timeguard:
+        description: Set a timeguard.
+        usage: /<command>
+     goto:
+        description: Teleport to a specific world.
+        usage: /<command>
+     played:
+        description: Teleport to a specific world.
+        usage: /<command>
