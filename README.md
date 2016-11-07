@@ -13,14 +13,11 @@ Commands:
 - Displays your total played time in chat.
 
 /timeguard
-- <add> <name> <hours>
-- Set world "name" to require "hours" of played time to /goto.
+-(add) (name) (hours) = Set world "name" to require "hours" of played time to /goto.
 
-- <remove> <name>
-- Set world "name" to have no timeguard requirements.
+-(remove) (name) = Set world "name" to have no timeguard requirements.
 
-- <vet> <add/remove> <player>
-- Adds or removes "veteran" status, which exempts players from timeguards
+-(vet) (add/remove) (player) = Adds or removes "veteran" status, which exempts players from timeguards
 
 /goto <name>
 - Teleports you to [x:0, z:0] @ world "name" if you meet the world's minimum required played hours.
