@@ -2,7 +2,6 @@ package com.kraken.timeguard;
 
 import java.util.Date;
 import java.util.HashMap;
-import java.util.concurrent.TimeUnit;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,8 +29,14 @@ public class TGListener implements Listener {
 	  		Player player = e.getPlayer();
 	  		String UUIDString = player.getUniqueId().toString();
 	  		Date startTime = new Date();
-	  		
+
 	  		startTimes.put(UUIDString, startTime);
+	  		
+	  		if ( !player.hasPlayedBefore() ) {
+	  			configGetter.getConfig().set(UUIDString + ".name", player.getName());
+	  			configGetter.getConfig().set(UUIDString + ".exempt", false);
+		  		configGetter.saveConfig();
+	  		}
     	  
       }
       
@@ -41,21 +46,10 @@ public class TGListener implements Listener {
 	  		Player player = e.getPlayer();
 	  		String UUIDString = player.getUniqueId().toString();
 	  		
-	  		Date startTime = startTimes.get(UUIDString);
-	  		Date currentTime = new Date();
-	  		
-	  		if (startTime != null) {
-	  			
-		  		int playedTime = configGetter.getConfig().getInt(UUIDString + ".playedTime");
+	  		SavePlayedTime saver = new SavePlayedTime(configGetter, startTimes, configGetter.getSavedTimes());
+	  		saver.saveTask();
 		  		
-		  		long minutes = TimeUnit.MILLISECONDS.toMinutes(currentTime.getTime() - startTime.getTime());
-		  		
-		  		configGetter.getConfig().set(UUIDString + ".playedTime", playedTime + minutes);
-		  		configGetter.saveConfig();
-		  		
-		  		startTimes.remove(UUIDString);
-	  		
-	  		} 
+		  	startTimes.remove(UUIDString);
 	  		
       }
       
