@@ -67,11 +67,13 @@ public class TimeGuard extends JavaPlugin {
     
   //TimeGuard commands
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-
+		if(!(sender instanceof Player)){
+			return false;
+		}
 		Player player = (Player) sender;
 		String UUIDString = player.getUniqueId().toString();
 		
-		if (cmd.getName().equalsIgnoreCase("played") && sender instanceof Player) {
+		if (cmd.getName().equalsIgnoreCase("played")) {
 			
 			int playedTime = getConfig().getInt(UUIDString + ".playedTime");
 			double playedHours = (playedTime / 60);
@@ -80,62 +82,59 @@ public class TimeGuard extends JavaPlugin {
 			} else {
 				player.sendMessage(ChatColor.GREEN + "You have played for over " + playedHours + " hours total.");
 			}
-			return true;
-			
+			return true;	
 		}
 		
     	//Command: goto
-        if (cmd.getName().equalsIgnoreCase("goto") && sender instanceof Player) {
-        	
-        	if ( args.length == 1 ) {
-        		
-        		String worldName = args[0];
-        		World world = Bukkit.getServer().getWorld(args[0]);
-        		
-        		if (world != null) {
-        			
-        			int requiredMins = getConfig().getInt(worldName + ".timeguard");
-            		int playedTime = getConfig().getInt(UUIDString + ".playedTime");
-            		
-            		if ( requiredMins == 0 || playedTime >= requiredMins ) {
-                		
-            			int y = 255;
-    		        	boolean isOnLand = false;
-    		        	while (isOnLand == false) {
-    		        		Location tele = new Location(world, 0, y, 0);
-    		        		if (tele.getBlock().getType() != Material.AIR) {
-    		        			isOnLand = true;
-    		        			tele = new Location(world, 0, y+3, 0);
-    		        			player.teleport(tele);
-    		        		} else y--;
-    		        	}
-    		        	
-                		player.sendMessage(ChatColor.GREEN + "Welcome to \"" + worldName + "\".");
-                		
-                		return true;
-                		
-                	} else {
-                		
-                		player.sendMessage(ChatColor.RED + "You were denied access to \"" + args[0] + "\".");
-                		
-                		return true;
-                		
-                	}
-        			
-        		} else {
-        			
-        			player.sendMessage(ChatColor.GRAY + "World name not found!");
-        			
-        		}
-        		
-        	} else {
-        		
-        		player.sendMessage(ChatColor.GRAY + "To go to a world, enter \"/goto <worldName>\"");
-        		
-        	}
-            
+		if (cmd.getName().equalsIgnoreCase("goto")) {
+			if ( args.length == 1 ) {
+				String worldName = args[0];
+				World world = Bukkit.getServer().getWorld(args[0]);
+
+				if (world != null) {
+
+					int requiredMins = getConfig().getInt(worldName + ".timeguard");
+				int playedTime = getConfig().getInt(UUIDString + ".playedTime");
+
+				if ( requiredMins == 0 || playedTime >= requiredMins ) {
+
+					int y = 255;
+					boolean isOnLand = false;
+					while (isOnLand == false) {
+						Location tele = new Location(world, 0, y, 0);
+						if (tele.getBlock().getType() != Material.AIR) {
+							isOnLand = true;
+							tele = new Location(world, 0, y+3, 0);
+							player.teleport(tele);
+						} else y--;
+					}
+
+					player.sendMessage(ChatColor.GREEN + "Welcome to \"" + worldName + "\".");
+
+					return true;
+
+				} else {
+
+					player.sendMessage(ChatColor.RED + "You were denied access to \"" + args[0] + "\".");
+
+					return true;
+
+				}
+
+				} else {
+
+					player.sendMessage(ChatColor.GRAY + "World name not found!");
+
+				}
+
+			} else {
+
+				player.sendMessage(ChatColor.GRAY + "To go to a world, enter \"/goto <worldName>\"");
+
+			}
+
         //Command: timeguard <time> <world>
-        } else if (cmd.getName().equalsIgnoreCase("timeguard") && sender instanceof Player) {
+        } else if (cmd.getName().equalsIgnoreCase("timeguard")) {
 
         	if ( player.isOp() ) {
         		
