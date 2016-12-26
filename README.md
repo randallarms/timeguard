@@ -22,7 +22,11 @@ Commands:
 /goto <name>
 - Teleports you to [x:0, z:0] @ world "name" if you meet the world's minimum required played hours.
 
-TimeGuard on GitHub: https://github.com/randallarms/timeguard
+Plans:
+
+- Catch all forms of world travel (plugins, tp, etc) with TimeGuard.
+- Add a customizable config file.
+- Add different types of timeguards for other actions.
 
 Do you want to help us improve this plugin? You can! Everyone welcome to contribute on GitHub by utilizing the Flow to branch their own version, make changes (commits), and submit their changes as a "pull request" to be considered for merging with the master file.
 
