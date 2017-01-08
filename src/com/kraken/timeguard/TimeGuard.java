@@ -1,5 +1,5 @@
 // =========================================================================
-// |TIMEGUARD v1.2
+// |TIMEGUARD v1.3
 // | by Kraken | https://www.spigotmc.org/members/kraken_.287802/
 // | code inspired maxleovince95 & Strahan @ SpigotMC forums -- thank you.
 // |
@@ -104,7 +104,15 @@ public class TimeGuard extends JavaPlugin implements Listener {
 		
 		if (isPlayer) {
 			
-			if ( cmd.getName().equalsIgnoreCase("played") ) {
+			//Command: goto
+			if ( cmd.getName().equalsIgnoreCase("version") ) {
+			
+				player.sendMessage(ChatColor.GRAY + "CURRENT: TimeGuard v1.3");
+				
+			}
+			
+			//Command: played
+			else if ( cmd.getName().equalsIgnoreCase("played") ) {
 				
 				int playedTime = getConfig().getInt(UUIDString + ".playedTime");
 				int playedHours = ( playedTime / 60 );
