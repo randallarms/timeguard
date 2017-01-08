@@ -34,14 +34,14 @@ public class LocSerialization extends TimeGuard {
 	    if (l == null) {
 	        return "";
 	    }
-	    return l.getWorld().getName() + "," + l.getBlockX() + "," + l.getBlockY() + "," + l.getBlockZ() ;	    
+	    return l.getWorld().getName() + ":" + l.getBlockX() + ":" + l.getBlockY() + ":" + l.getBlockZ() ;	    
 	}
     
     public static Location getLiteLocationFromString(String s) {
         if (s == null || s.trim() == "") {
             return null;
         }
-        final String[] parts = s.split(",");
+        final String[] parts = s.split(":");
         if (parts.length == 4) {
             World w = Bukkit.getServer().getWorld(parts[0]);
             double x = Double.parseDouble(parts[1]);
