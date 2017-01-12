@@ -5,7 +5,7 @@ Played time display & minimum required time for world entry; Bukkit on Minecraft
 
 HOW TO INSTALL AND USE: https://www.spigotmc.org/threads/timeguard.191416/
 
-TimeGuard features the ability to record and display total played time on the server (after plugin installation). You can even set worlds to require a minimum number of played hours (x24 for days) to teleport into. TimeGuard now catches all player teleports!
+TimeGuard features the ability to record and display total played time on the server (after plugin installation). You can even set worlds to require a minimum number of played hours (x24 for days) to enter, either through teleports or commands.
 
 Commands:
 
@@ -20,7 +20,7 @@ Commands:
 - (vet) (add/remove) (player) = Adds or removes "veteran" status, which exempts players from timeguards.
 
 /goto <name>
-- Teleports you to [x:0, z:0] @ world "name" if you meet the world's minimum required played hours.
+- Built-in teleport; takes you to [x:0, z:0] @ world "name" if you meet the world's minimum requirements.
 
 Plans:
 
