@@ -1,6 +1,6 @@
 name: TimeGuard
 main: com.kraken.timeguard.TimeGuard
-version: 1.3
+version: 2.0
 commands: 
      timeguard:
         description: Set a timeguard.
