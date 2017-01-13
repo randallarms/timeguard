@@ -1,5 +1,5 @@
 // =========================================================================
-// |TIMEGUARD v2.0
+// |TIMEGUARD v2.1
 // | by Kraken | https://www.spigotmc.org/members/kraken_.287802/
 // | code inspired maxleovince95 & Strahan @ SpigotMC forums -- thank you.
 // |
