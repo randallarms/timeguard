@@ -85,8 +85,6 @@ public class TGListener implements Listener {
 		        			player.teleport(tele);
 		        		} else y--;
 		        	}
-		        	
-	        		player.sendMessage(ChatColor.GREEN + "Welcome to \"" + worldName + "\".");
 	        		
 	        	} else {
 	        		

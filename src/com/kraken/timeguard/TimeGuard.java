@@ -1,5 +1,5 @@
 // =========================================================================
-// |TIMEGUARD v2.1
+// |TIMEGUARD v2.2.1
 // | by Kraken | https://www.spigotmc.org/members/kraken_.287802/
 // | code inspired maxleovince95 & Strahan @ SpigotMC forums -- thank you.
 // |
@@ -104,15 +104,8 @@ public class TimeGuard extends JavaPlugin implements Listener {
 		
 		if (isPlayer) {
 			
-			//Command: goto
-			if ( cmd.getName().equalsIgnoreCase("version") ) {
-			
-				player.sendMessage(ChatColor.GRAY + "CURRENT: TimeGuard v1.3");
-				
-			}
-			
 			//Command: played
-			else if ( cmd.getName().equalsIgnoreCase("played") ) {
+			if ( cmd.getName().equalsIgnoreCase("played") ) {
 				
 				int playedTime = getConfig().getInt(UUIDString + ".playedTime");
 				int playedHours = ( playedTime / 60 );
@@ -344,6 +337,16 @@ public class TimeGuard extends JavaPlugin implements Listener {
 				        			break;
 				        			
 	        				}
+	        				
+	        				break;
+	        				
+	        			case 0:
+	        				
+	        				Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "title " + player.getName().toString() + " times 15 80 15");
+	    					Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "title " + player.getName().toString() 
+	    							+ " title {\"text\":\"TimeGuard\",\"color\":\"green\",\"bold\":\"true\"}");
+	    					Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "title " + player.getName().toString() 
+	    							+ " subtitle {\"text\":\"Played time tracking plugin by kraken_ (v2.2.1)\",\"color\":\"gold\"}");  
 	        				
 	        				break;
 		        		
