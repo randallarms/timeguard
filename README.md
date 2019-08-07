@@ -1,9 +1,6 @@
-#TimeGuard
-by Kraken | https://www.spigotmc.org/members/kraken_.287802/
+# TimeGuard
 
 Played time display & minimum required time for world entry; Bukkit on Minecraft (MCv1.11.2).
-
-HOW TO INSTALL AND USE: https://www.spigotmc.org/threads/timeguard.191416/
 
 TimeGuard features the ability to record and display total played time on the server (after plugin installation). You can even set worlds to require a minimum number of played hours (x24 for days) to enter, either through teleports or commands.
 
