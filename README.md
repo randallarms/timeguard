@@ -2,7 +2,7 @@
 
 Played time display & minimum required time for world entry; Bukkit on Minecraft (MCv1.11.2).
 
-TimeGuard features the ability to record and display total played time on the server (after plugin installation). You can even set worlds to require a minimum number of played hours (x24 for days) to enter, either through teleports or commands.
+TimeGuard features the ability to record and display total played time on the server (after plugin installation). You can even set worlds to require a minimum number of played hours (divide by 24 for days) to enter, either through teleports or commands.
 
 Commands:
 
